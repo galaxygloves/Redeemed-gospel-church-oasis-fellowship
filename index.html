@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis Fellowship | Home</title>
+    <link rel="icon" href="images/redeemed church logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            background: #f7f7f7;
+            color: #222;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        .main-nav {
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 2vw;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-logo {
+            height: 60px;
+            width: auto;
+            border-radius: 10px;
+            background: #fff;
+            padding: 2px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: #1e90ff;
+            color: #fff;
+        }
+        .nav-socials {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .nav-socials img {
+            height: 24px;
+            width: 24px;
+            transition: transform 0.3s;
+            display: block;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+        }
+        .nav-socials img:hover {
+            transform: scale(1.1);
+        }
+        .hero {
+            height: 65vh;
+            min-height: 350px;
+            background: linear-gradient(rgba(44,62,80,0.55),rgba(44,62,80,0.45)), url('images/pexels-wolfgang-1002140-2747448.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2.5rem 1rem;
+            background: rgba(44,62,80,0.32);
+            border-radius: 22px;
+            box-shadow: 0 4px 32px rgba(44,62,80,0.13);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .welcome-text {
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .hero-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffe066;
+            font-weight: 700;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #eaf4fb;
+            margin-bottom: 0;
+        }
+        .section {
+            padding: 40px 5%;
+            background: #f7f7f7;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(30,144,255,0.10);
+            background: #eee;
+            transition: transform 0.3s;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.06);
+        }
+        /* Sermons */
+        .sermon-flex {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 0 auto 32px auto;
+            max-width: 1100px;
+        }
+        .video-half, .sermon-list-half {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+        .video-half {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(30,144,255,0.10);
+        }
+        .video-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .video-btn {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 20px;
+            background: #1e90ff;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: background 0.3s;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+        }
+        .video-btn:hover {
+            background: #34495e;
+        }
+        .sermon-list-half {
+            background: #eaf4fb;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            padding: 24px 18px;
+            min-width: 220px;
+        }
+        .sermon-list-half h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+        .sermon-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sermon-list li {
+            margin-bottom: 18px;
+            font-size: 1.08rem;
+            color: #222;
+            border-bottom: 1px solid #e1ecf4;
+            padding-bottom: 10px;
+        }
+        .sermon-list li:last-child {
+            border-bottom: none;
+        }
+        .sermon-list span {
+            color: #888;
+            font-size: 0.95em;
+        }
+        .sermon-link {
+            display: block;
+            color: #222;
+            text-decoration: none;
+            padding: 8px 0;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .sermon-link:hover {
+            background: #e1ecf4;
+            color: #1e90ff;
+            text-decoration: underline;
+        }
+        /* Events */
+        .events-section {
+            background: transparent;
+            box-shadow: none;
+            margin: 0 auto;
+            padding: 0;
+            border-radius: 0;
+            max-width: 1100px;
+        }
+        .event-gallery {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+        .event-card-square {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+            width: 340px;
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .event-card-square img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 14px;
+            background: #eee;
+        }
+        .event-info {
+            width: 100%;
+        }
+        .event-info h3 {
+            margin: 0 0 8px 0;
+            color: #1e90ff;
+            font-size: 1.2rem;
+        }
+        .event-info p {
+            margin: 6px 0;
+            font-size: 1rem;
+            color: #222;
+        }
+        .event-nav {
+            background: #eaf4fb;
+            color: #1e90ff;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+        }
+        .event-nav:hover {
+            background: #1e90ff;
+            color: #fff;
+        }
+        /* Pastor */
+        .pastor-section {
+            display: flex;
+            flex-direction: row; /* Ensure row layout */
+            align-items: center;
+            gap: 32px;
+            margin: 0 auto;
+            max-width: 900px;
+            background: #2c3e50;
+            color: #fff;
+            border-radius: 18px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+            justify-content: flex-start;
+        }
+        .pastor-content h3,
+        .pastor-content h1,
+        .pastor-content p {
+            color: #fff;
+        }
+        .pastor-photo {
+            width: 150px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: none;
+            box-shadow: none;
+            border: none;
+            margin: 0; /* Remove any margin so it starts at the left */
+            flex-shrink: 0;
+            display: block;
+        }
+        .pastor-content {
+            flex: 1 1 0;
+            min-width: 220px;
+        }
+        @media (max-width: 900px) {
+            .section {
+                padding: 18px 2vw;
+            }
+            .gallery-item img {
+                height: 120px;
+            }
+            .sermon-flex {
+                flex-direction: column;
+                gap: 18px;
+                max-width: 98vw;
+            }
+            .sermon-list-half {
+                padding: 14px 8px;
+            }
+            .pastor-section {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .pastor-photo {
+                margin-bottom: 18px;
+            }
+        }
+        @media (max-width: 700px) {
+            .main-nav {
+                flex-direction: row;
+                align-items: center;
+                width: 100vw;
+                min-width: 0;
+                max-width: 100vw;
+                box-sizing: border-box;
+                overflow-x: auto;
+                scrollbar-width: thin;
+                scroll-behavior: smooth;
+            }
+            .nav-logo {
+                flex: 0 0 auto;
+                height: 40px;
+                margin-right: 8px;
+            }
+            .nav-links {
+                display: flex;
+                gap: 0.7rem;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                width: auto;
+                min-width: 0;
+                max-width: 100vw;
+                overflow-x: auto;
+                scrollbar-width: thin;
+                scroll-behavior: smooth;
+            }
+            .nav-link {
+                font-size: 0.95rem;
+                padding: 4px 8px;
+                margin: 0 1px;
+                flex: 0 0 auto;
+                text-align: center;
+                white-space: nowrap;
+            }
+            .nav-socials {
+                justify-content: center;
+                width: auto;
+                min-width: 0;
+                max-width: 100vw;
+                flex: 0 0 auto;
+                margin-left: 8px;
+            }
+            .nav-links::-webkit-scrollbar {
+                height: 6px;
+                background: #e1ecf4;
+                border-radius: 3px;
+            }
+            .nav-links::-webkit-scrollbar-thumb {
+                background: #1e90ff;
+                border-radius: 3px;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Upcoming Events Hero Section */
+        .events-hero {
+            background: linear-gradient(rgba(30,144,255,0.25), rgba(44,62,80,0.25)), url('images/pexels-wolfgang-1002140-2747448.jpg') center/cover no-repeat;
+            padding: 40px 5%;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+            margin-bottom: 50px;
+            position: relative;
+            color: #fff;
+        }
+        .events-hero .events-section {
+            position: relative;
+            z-index: 2;
+        }
+        .events-hero .section-title {
+            color: #fff;
+            text-shadow: 1px 2px 8px rgba(44,62,80,0.25);
+        }
+        .events-hero .event-card-square {
+            background: rgba(255,255,255,0.95);
+            color: #222;
+        }
+        /* Reverend Hero Section */
+        .pastor-hero {
+            background: #2c3e50;
+            padding: 40px 5%;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+            margin-bottom: 32px;
+        }
+        /* Location Hero Section */
+        .location-hero {
+            background: #f0f8ff;
+            padding: 40px 5%;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+            margin-bottom: 0;
+        }
+        .location-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .location-details {
+            flex: 1 1 260px;
+            min-width: 220px;
+            font-size: 1.1rem;
+            color: #222;
+        }
+        .location-img {
+            width: 340px;
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-top: 0;
+            box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+            border: 3px solid #fff;
+            flex-shrink: 0;
+            background: #eee;
+        }
+        footer {
+            background: #232f3e;
+            color: #fff;
+            padding: 48px 5% 24px;
+            margin-top: 0;
+            font-size: 1rem;
+            letter-spacing: 0.2px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 24px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+        .footer-section {
+            min-width: 220px;
+            flex: 1 1 260px;
+            padding: 0 10px;
+        }
+        .footer-section h3 {
+            margin-bottom: 18px;
+            color: #ffe066;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+        }
+        .footer-section a {
+            color: #fff;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .footer-section a:hover {
+            color: #1e90ff;
+        }
+        .footer-section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .footer-section.quick-links {
+            align-items: flex-end;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-socials {
+            margin-top: 18px;
+            display: flex;
+            gap: 14px;
+        }
+        .footer-socials a img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            transition: transform 0.2s;
+        }
+        .footer-socials a img:hover {
+            transform: scale(1.13);
+            background: #1e90ff;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.13);
+            padding-top: 18px;
+            font-size: 0.97rem;
+            color: #eaf4fb;
+            background: transparent;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 900px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 28px;
+                text-align: left;
+            }
+            .footer-section.quick-links {
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Redeemed Gospel Church-Oasis Fellowship</h2>
+    </header>
+    <nav class="main-nav">
+        <img src="images/redeemed church logo.png" alt="Redeemed Gospel Church Logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="about us.html" class="nav-link">About Us</a>
+            <a href="contacts.html" class="nav-link">Contacts</a>
+            <a href="sermons.html" class="nav-link">Sermons</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="ministries.html" class="nav-link">Ministries</a>
+            <a href="give.html" class="nav-link">Give</a>
+        </div>
+        <div class="nav-socials">
+            <a href="https://www.facebook.com/harrison.maingi.5" target="_blank" rel="noopener"><img src="images/facebook.jpg" alt="Facebook"></a>
+            <a href="https://x.com/OasisFello60328" target="_blank" rel="noopener"><img src="images/twitter.avif" alt="Twitter"></a>
+            <a href="https://www.instagram.com/maingiharrison/" target="_blank" rel="noopener"><img src="images/instagram.jpg" alt="Instagram"></a>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="welcome-text">Welcome to Redeemed Gospel Church-Oasis Fellowship</h1>
+            <h1 class="hero-title">Experience the Love of Christ</h1>
+            <p class="hero-subtitle">Where Faith Meets Community</p>
+        </div>
+    </section>
+    <section class="section">
+        <h2 class="section-title">Our Community</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/IMG_6497.JPG" alt="Church Community">
+            </div>
+            <div class="gallery-item">
+                <img src="images/_MG_6803.JPG" alt="Worship Service">
+            </div>
+            <div class="gallery-item">
+                <img src="images/_MG_6806.JPG" alt="Church Service">
+            </div>
+            <div class="gallery-item">
+                <img src="images/_MG_6802.JPG" alt="Church Members">
+            </div>
+            <div class="gallery-item">
+                <img src="images/_MG_7235.JPG" alt="Church Leadership">
+            </div>
+            <div class="gallery-item">
+                <img src="images/WhatsApp Image .jpg" alt="Church Community">
+            </div>
+            <div class="gallery-item">
+                <img src="images/WhatsApp Image .jpg" alt="Church Community">
+            </div>
+            <div class="gallery-item">
+                <img src="images/p.jpeg" alt="Church Community">
+            </div>
+            <div class="gallery-item">
+                <img src="images/youth.jpg" alt="Youth Ministry">
+            </div>
+            <div class="gallery-item">
+                <img src="images/church inside.JPG" alt="Youth Ministry">
+            </div>
+            <div class="gallery-item">
+                <img src="images/crusade.jpg" alt="Community Outreach">
+            </div>
+            <div class="gallery-item">
+                <img src="images/SUNDAY SCHOOL.JPG" alt="Community Outreach">
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <h2 class="section-title">Latest Sermons</h2>
+        <div class="sermon-flex">
+            <div class="video-half">
+                <video id="sermonVideo" controls>
+                    <source src="Video 1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-controls">
+                    <button onclick="prevVideo()" class="video-btn">Previous Sermon</button>
+                    <button onclick="nextVideo()" class="video-btn">Next Sermon</button>
+                </div>
+            </div>
+            <div class="sermon-list-half">
+                <h3>Recent Sermons</h3>
+                <ul class="sermon-list">
+                    <li>
+                        <a href="sermon-details.html?title=Faith%20That%20Moves%20Mountains" class="sermon-link">
+                            <strong>Faith That Moves Mountains</strong><br>
+                            <span>August 24, 2025</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sermon-details.html?title=The%20Power%20of%20Prayer" class="sermon-link">
+                            <strong>The Power of Prayer</strong><br>
+                            <span>August 17, 2025</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sermon-details.html?title=Walking%20in%20Love" class="sermon-link">
+                            <strong>Walking in Love</strong><br>
+                            <span>August 10, 2025</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sermon-details.html?title=Overcoming%20Fear" class="sermon-link">
+                            <strong>Overcoming Fear</strong><br>
+                            <span>August 3, 2025</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Upcoming Events Hero Section -->
+    <section class="hero-section events-hero">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="events-section">
+            <div class="event-gallery">
+                <button class="event-nav event-prev" id="eventPrevBtn">&#8592;</button>
+                <div class="event-card-square" id="eventCard">
+                    <img id="eventImg" src="" alt="Event Photo">
+                    <div class="event-info">
+                        <h3 id="eventTitle">Annual Youth Camp</h3>
+                        <p id="eventDate"><strong>Date:</strong> December 14, 2025</p>
+                        <p id="eventTime"><strong>Time:</strong> 9:00 AM - 4:00 PM</p>
+                        <p id="eventVenue"><strong>Venue:</strong> Oasis Fellowship Auditorium</p>
+                        <p id="eventDesc">Join us for a day of worship, inspiration, and fellowship for all youth and young adults!</p>
+                    </div>
+                </div>
+                <button class="event-nav event-next" id="eventNextBtn">&#8594;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reverend Hero Section -->
+    <section class="hero-section pastor-hero">
+        <div class="pastor-section">
+            <img src="images/IMG_6497-removebg-preview.png" alt="Reverend Harrison Maingi" class="pastor-photo">
+            <div class="pastor-content">
+                <h3>Reverend</h3>
+                <h1>Reverend Harrison Maingi</h1>
+                <p>
+                    Rev. Harrison Maingi is the Founder and Senior Pastor of Redeemed Gospel Church Oasis Fellowship.<br>
+                    He is a visionary leader with a passion for transforming lives through the Gospel, raising disciples, and impacting communities with the love of Christ.
+                </p>
+            </div>
+        </div>
+    </section>
+      <!-- Meet Our Pastors Section -->
+    <section class="section" style="background:#f7f7f7; padding-top:32px;">
+        <h2 class="section-title" style="color:#1e90ff;">Meet Our Pastors</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; max-width: 1100px; margin: 0 auto;">
+            <!-- Pastor 1 -->
+            <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10); padding: 24px 18px; width: 260px; text-align: center;">
+                <img src="images/IMG_6497-removebg-preview.png" alt="Reverend Harrison Maingi" style="width:110px; height:140px; border-radius:50%; object-fit:cover; margin-bottom:14px;">
+                <h3 style="color:#1e90ff; margin-bottom:8px;">Reverend Harrison Maingi</h3>
+                <p style="font-size:1rem; color:#222;">
+                    Founder and Senior Pastor. Visionary leader passionate about transforming lives, raising disciples, and impacting communities with the love of Christ.
+                </p>
+            </div>
+            <!-- Pastor 2 -->
+            <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10); padding: 24px 18px; width: 260px; text-align: center;">
+                <img src="images/pastor paul.jpg" alt="Pastor Paul" style="width:120px; height:140px; border-radius:40%; object-fit:cover; margin-bottom:14px;">
+                <h3 style="color:#1e90ff; margin-bottom:8px;">Pastor Paul</h3>
+                <p style="font-size:1rem; color:#222;">
+                    Associate Pastor. Dedicated to mentorship, prayer ministry, and supporting families in spiritual growth.
+                </p>
+            </div>
+            <!-- Pastor 3 -->
+            <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10); padding: 24px 18px; width: 260px; text-align: center;">
+                <img src="pastor3.jpg" alt="Pastor John Nancy" style="width:110px; height:110px; border-radius:50%; object-fit:cover; margin-bottom:14px;">
+                <h3 style="color:#1e90ff; margin-bottom:8px;">Pastor Nancy</h3>
+                <p style="font-size:1rem; color:#222;">
+                    Leads the Women's Ministry, inspiring the congregation to connect with God through prayer and fellowship.
+                </p>
+            </div>
+            <!-- Pastor 4 -->
+            <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10); padding: 24px 18px; width: 260px; text-align: center;">
+                <img src="pastor4.jpg" alt="Pastor " style="width:110px; height:110px; border-radius:50%; object-fit:cover; margin-bottom:14px;">
+                <h3 style="color:#1e90ff; margin-bottom:8px;">Pastor Martin</h3>
+                <p style="font-size:1rem; color:#222;">
+                    inspiring the congregation to connect with God through prayer and fellowship.
+                </p>
+            </div>
+            <!-- Pastor 5 -->
+            <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10); padding: 24px 18px; width: 260px; text-align: center;">
+                <img src="pastor5.jpg" alt="Pastor " style="width:110px; height:110px; border-radius:50%; object-fit:cover; margin-bottom:14px;">
+                <h3 style="color:#1e90ff; margin-bottom:8px;">Pastor </h3>
+                <p style="font-size:1rem; color:#222;">
+                    inspiring the congregation to connect with God through prayer and fellowship.
+                </p>
+            </div>
+            <!-- Add more pastors as needed -->
+        </div>
+    </section>
+
+    <!-- Location Hero Section -->
+    <section class="hero-section location-hero">
+        <h2 class="section-title">Where We Are Located</h2>
+        <div class="location-content">
+            <div class="location-details">
+                <p>
+                    <strong>Location:</strong>
+                    <a href="https://www.google.com/maps/place/Redeemed+Gospel+ChurchFreeArea/@-0.2953278,36.1263173,15z/data=!4m15!1m8!3m7!1s0x1829922e1eb5819b:0x9de6e43707cc7e67!2sRedeemed+Gospel+ChurchFreeArea!8m2!3d-0.2954072!4d36.1262727!10e5!16s%2Fg%2F11pv274cj5!3m5!1s0x1829922e1eb5819b:0x9de6e43707cc7e67!8m2!3d-0.2954072!4d36.1262727!16s%2Fg%2F11pv274cj5?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D"
+                       target="_blank" style="color:#1e90ff;text-decoration:underline;">
+                        P43G+RG Nakuru Church Street
+                    </a>
+                </p>
+                <p>Nakuru, Kenya</p>
+                <p><strong>Directions:</strong> We are located along Church Street, Free Area, Nakuru. Click the address above for Google Maps directions.</p>
+            </div>
+            <img src="images/20241212_122017.jpg" alt="Church photo" class="location-img">
+        </div>
+    </section>
+  
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:oasisfellowship738@gmail.com">oasisfellowship738@gmail.com</a></p>
+                <p>Phone: <a href="tel:+254720767457">+254 720 767 457</a></p>
+                <p>Address: Nakuru, Kenya, P43G+RG Nakuru</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/harrison.maingi.5" target="_blank" rel="noopener"><img src="images/facebook.jpg" alt="Facebook"></a>
+                    <a href="https://x.com/OasisFello60328" target="_blank" rel="noopener"><img src="images/twitter.avif" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/maingiharrison/" target="_blank" rel="noopener"><img src="images/instagram.jpg" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Service Times</h3>
+                <p><strong>Sunday Services:</strong><br>Intercessory Prayers 8:00AM - 10:00AM<br>Main service 10:00 AM - 1:00 PM</p>
+                <p><strong>Wednesday:</strong> Prayer and Fasting 5:30 PM - 7:00 PM</p>
+                <p><strong>Friday:</strong> Holy Communion 6:00 PM - 7:30 PM</p>
+            </div>
+            <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <p><a href="events.html">Upcoming Events</a></p>
+                <p><a href="ministries.html">Our Ministries</a></p>
+                <p><a href="give.html">Online Giving</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Redeemed Gospel Church Oasis Fellowship. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Sermon Modal -->
+    <div id="sermonModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(44,62,80,0.25); z-index:2000; align-items:center; justify-content:center;">
+        <div id="sermonModalContent" style="background:#fff; border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.18); max-width:400px; width:90vw; padding:28px 22px 18px 22px; position:relative; margin:auto;">
+            <button id="closeSermonModal" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:1.5rem; color:#1e90ff; cursor:pointer;">&times;</button>
+            <h2 id="modalSermonTitle" style="margin-top:0; color:#1e90ff; font-size:1.3rem;"></h2>
+            <p id="modalSermonDate" style="color:#888; margin-bottom:10px;"></p>
+            <div id="modalSermonDesc" style="color:#222; font-size:1.05rem;"></div>
+        </div>
+    </div>
+    <script>
+        // Sermon video navigation (optional)
+        const videos = [
+            'Video 1.mp4',
+            'Video 2.mp4'
+        ];
+        let currentVideoIndex = 0;
+        const videoElement = document.getElementById('sermonVideo');
+        function loadVideo(index) {
+            if (index >= 0 && index < videos.length) {
+                currentVideoIndex = index;
+                videoElement.src = videos[currentVideoIndex];
+                videoElement.load();
+                videoElement.play();
+            }
+        }
+        function nextVideo() {
+            loadVideo((currentVideoIndex + 1) % videos.length);
+        }
+        function prevVideo() {
+            loadVideo((currentVideoIndex - 1 + videos.length) % videos.length);
+        }
+
+        // Events carousel
+        const events = [
+            {
+                img: "images/youth.jpg",
+                title: "Annual Youth Camp",
+                date: "December 14, 2025",
+                duration: "1 Week",
+                time: "9:00 AM - 4:00 PM",
+                venue: "Oasis Fellowship Auditorium",
+                desc: "Join us for a day of worship, inspiration, and fellowship for all youth and young adults!"
+            },
+            {
+                img: "images/crusade.jpg",
+                title: "Community Outreach",
+                date: "October 5, 2025",
+                time: "2:00 PM - 5:00 PM",
+                venue: "Local Community Center",
+                desc: "Be part of our outreach as we share love, food, and hope with our neighbors."
+            },
+            {
+                img: "images/women.jpg",
+                title: "Women's Prayer Breakfast",
+                date: "November 2, 2025",
+                time: "8:00 AM - 11:00 AM",
+                venue: "Church Hall",
+                desc: "A special morning for women to connect, pray, and grow together."
+            }
+        ];
+        let currentEvent = 0;
+        let eventInterval = null;
+
+        function showEvent(index) {
+            const e = events[index];
+            document.getElementById('eventImg').src = e.img;
+            document.getElementById('eventTitle').textContent = e.title;
+            document.getElementById('eventDate').innerHTML = `<strong>Date:</strong> ${e.date}`;
+            document.getElementById('eventTime').innerHTML = `<strong>Time:</strong> ${e.time}`;
+            document.getElementById('eventVenue').innerHTML = `<strong>Venue:</strong> ${e.venue}`;
+            document.getElementById('eventDesc').textContent = e.desc;
+        }
+        function nextEvent() {
+            currentEvent = (currentEvent + 1) % events.length;
+            showEvent(currentEvent);
+        }
+        function prevEvent() {
+            currentEvent = (currentEvent - 1 + events.length) % events.length;
+            showEvent(currentEvent);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Sermon video navigation
+            if (videoElement) {
+                videoElement.src = videos[currentVideoIndex];
+            }
+
+            // Events carousel
+            showEvent(currentEvent);
+
+            document.getElementById('eventNextBtn').onclick = function() {
+                nextEvent();
+                resetEventInterval();
+            };
+            document.getElementById('eventPrevBtn').onclick = function() {
+                prevEvent();
+                resetEventInterval();
+            };
+
+            // Auto-advance every 5 seconds
+            eventInterval = setInterval(nextEvent, 5000);
+        });
+
+        function resetEventInterval() {
+            clearInterval(eventInterval);
+            eventInterval = setInterval(nextEvent, 5000);
+        }
+
+        // Sermon details data
+        const sermonDetails = [
+            {
+                title: "Faith That Moves Mountains",
+                date: "August 24, 2025",
+                desc: "Discover how faith can overcome every obstacle. This sermon explores biblical examples and practical steps to strengthen your faith."
+            },
+            {
+                title: "The Power of Prayer",
+                date: "August 17, 2025",
+                desc: "Learn about the transformative power of prayer and how it connects us to God's will and miracles."
+            },
+            {
+                title: "Walking in Love",
+                date: "August 10, 2025",
+                desc: "A message on living out Christ's love in our daily lives, impacting those around us with kindness and compassion."
+            },
+            {
+                title: "Overcoming Fear",
+                date: "August 3, 2025",
+                desc: "Find out how to conquer fear through faith, trust, and the promises of God."
+            }
+        ];
+
+        // Modal logic
+        function openSermonModal(index) {
+            const sermon = sermonDetails[index];
+            document.getElementById('modalSermonTitle').textContent = sermon.title;
+            document.getElementById('modalSermonDate').textContent = sermon.date;
+            document.getElementById('modalSermonDesc').textContent = sermon.desc;
+            document.getElementById('sermonModal').style.display = 'flex';
+        }
+        function closeSermonModal() {
+            document.getElementById('sermonModal').style.display = 'none';
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Sermon video navigation
+            if (videoElement) {
+                videoElement.src = videos[currentVideoIndex];
+            }
+
+            // Events carousel
+            showEvent(currentEvent);
+
+            document.getElementById('eventNextBtn').onclick = function() {
+                nextEvent();
+                resetEventInterval();
+            };
+            document.getElementById('eventPrevBtn').onclick = function() {
+                prevEvent();
+                resetEventInterval();
+            };
+
+            // Auto-advance every 5 seconds
+            eventInterval = setInterval(nextEvent, 5000);
+
+            // Sermon modal event listeners
+            const sermonLinks = document.querySelectorAll('.sermon-link');
+            sermonLinks.forEach((link, idx) => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSermonModal(idx);
+                });
+            });
+            document.getElementById('closeSermonModal').onclick = closeSermonModal;
+            document.getElementById('sermonModal').onclick = function(e) {
+                if (e.target === this) closeSermonModal();
+            };
+        });
+
+        function resetEventInterval() {
+            clearInterval(eventInterval);
+            eventInterval = setInterval(nextEvent, 5000);
+        }
+    </script>
+</body>
+</html>
