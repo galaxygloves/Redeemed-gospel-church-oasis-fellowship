@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Redeemed Gospel Church Oasis Fellowship</title>
+    <link rel="icon" href="images/redeemed church logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .main-nav {
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 2vw;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            height: 60px;
+            width: auto;
+            border-radius: 10px;
+            background: #fff;
+            padding: 2px;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #1e90ff;
+            color: #fff;
+        }
+
+        .nav-socials {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-socials img {
+            height: 24px;
+            width: 24px;
+            transition: transform 0.3s;
+            display: block;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+        }
+
+        .nav-socials img:hover {
+            transform: scale(1.1);
+        }
+
+        main {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(44, 62, 80, 0.08);
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: #1e90ff;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+            background: #eaf4fb;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+            font-size: 1.08rem;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        input,
+        textarea {
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: #f7f7f7;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        button {
+            background: #1e90ff;
+            color: #fff;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #34495e;
+        }
+
+        .form-response {
+            margin-top: 1rem;
+            color: #1e90ff;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 5% 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 24px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .footer-section {
+            min-width: 220px;
+            flex: 1 1 260px;
+            padding: 0 10px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 18px;
+            color: #ffe066;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #1e90ff;
+        }
+
+        .footer-section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .footer-section.quick-links {
+            align-items: flex-end;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-socials {
+            margin-top: 18px;
+            display: flex;
+            gap: 14px;
+        }
+
+        .footer-socials a img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+            transition: transform 0.2s;
+            object-fit: cover;
+            display: block;
+        }
+
+        .footer-socials a img:hover {
+            transform: scale(1.13);
+            background: #1e90ff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.13);
+            padding-top: 18px;
+            font-size: 0.97rem;
+            color: #eaf4fb;
+            background: transparent;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 900px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 28px;
+                text-align: left;
+            }
+
+            .footer-section.quick-links {
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .main-nav {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.5rem 2vw;
+                gap: 0.3rem;
+                background: #fff;
+                box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                overflow-x: visible;
+            }
+
+            .nav-logo {
+                height: 34px !important;
+                margin: 0 8px 0 0;
+                display: block;
+                flex: 0 0 auto;
+                border-radius: 8px;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .nav-socials {
+                display: flex !important;
+                align-items: center;
+                gap: 10px;
+                margin-left: 8px;
+                position: relative;
+                z-index: 2001;
+            }
+
+            .mobile-nav-toggle {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 44px;
+                height: 44px;
+                cursor: pointer;
+                z-index: 2002;
+                margin-left: 8px;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+                border: 1px solid #eaf4fb;
+                transition: background 0.2s, box-shadow 0.2s;
+            }
+
+            .mobile-nav-toggle span {
+                display: block;
+                width: 28px;
+                height: 4px;
+                margin: 3px 0;
+                background: #1e90ff;
+                border-radius: 2px;
+                transition: 0.3s;
+            }
+
+            .mobile-nav-toggle.open span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-nav-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-nav-toggle.open span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-links {
+                display: none !important;
+                flex-direction: column;
+                align-items: flex-start;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                min-width: 0;
+                background: #fff;
+                box-shadow: 0 4px 24px rgba(44, 62, 80, 0.13);
+                border-radius: 0 0 12px 12px;
+                z-index: 2000;
+                padding: 8px 0;
+                margin: 0;
+                animation: slideDownNav 0.25s;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .nav-links.open {
+                display: flex !important;
+            }
+
+            .nav-link {
+                width: 92vw;
+                margin: 4px auto;
+                padding: 8px 0;
+                border-radius: 8px;
+                background: #eaf4fb;
+                color: #1e90ff;
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+                border: none;
+                transition: background 0.2s, color 0.2s;
+                box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+                text-decoration: none;
+                display: block;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                background: #1e90ff;
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+
+        @media (min-width: 701px) {
+            .mobile-nav-toggle {
+                display: none !important;
+            }
+
+            .nav-links {
+                display: flex !important;
+                position: static;
+                flex-direction: row;
+                width: auto;
+                background: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+                margin: 0;
+                max-height: none;
+                overflow: visible;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .nav-link {
+                width: auto;
+                margin: 0;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                background: none;
+                color: #2c3e50;
+                font-size: 1rem;
+                font-weight: 700;
+                text-align: center;
+                border: none;
+                box-shadow: none;
+                text-decoration: none;
+                display: block;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                background: #1e90ff;
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+
+        @keyframes slideDownNav {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Redeemed Gospel Church-Oasis Fellowship</h2>
+    </header>
+    <nav class="main-nav">
+        <img src="images/redeemed church logo.png" alt="Redeemed Gospel Church Logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about us.html" class="nav-link">About Us</a>
+            <a href="contacts.html" class="nav-link active">Contacts</a>
+            <a href="sermons.html" class="nav-link">Sermons</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="ministries.html" class="nav-link">Ministries</a>
+            <a href="give.html" class="nav-link">Give</a>
+        </div>
+        <div class="nav-socials">
+            <a href="https://www.facebook.com/harrison.maingi.5/?_rdr" target="_blank" rel="noopener"><img
+                    src="images/facebook.jpg" alt="Facebook"></a>
+            <a href="https://x.com/OasisFello60328" target="_blank" rel="noopener"><img src="images/twitter.avif"
+                    alt="Twitter"></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener"><img src="images/instagram.jpg" alt="Instagram"></a>
+            <div class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <h1>Contact Us</h1>
+        <div class="contact-info">
+            <p><strong>Address:</strong> Oasis Fellowship, Nairobi, Kenya</p>
+            <p><strong>Phone:</strong> +254 720 767 457</p>
+            <p><strong>Email:</strong> oasisfellowship738@gmail.com</p>
+        </div>
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm" action="https://formspree.io/f/xeolaqza" method="POST">
+                <input type="hidden" name="_redirect" value="https://yourdomain.com/thank-you.html">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+                <div id="formResponse" class="form-response"></div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:oasisfellowship738@gmail.com">oasisfellowship738@gmail.com</a></p>
+                <p>Phone: <a href="tel:+254720767457">+254 720 767 457</a></p>
+                <p>Address: Nakuru, Kenya, P43G+RG Nakuru</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/harrison.maingi.5" target="_blank" rel="noopener"><img
+                            src="images/facebook.jpg" alt="Facebook"></a>
+                    <a href="https://x.com/OasisFello60328" target="_blank" rel="noopener"><img src="images/twitter.avif"
+                            alt="Twitter"></a>
+                    <a href="https://www.instagram.com/maingiharrison/" target="_blank" rel="noopener"><img
+                            src="images/instagram.jpg" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Service Times</h3>
+                <p><strong>Sunday Services:</strong><br>Intercessory Prayers 8:00AM - 10:00AM<br>Main service 10:00 AM - 1:00 PM
+                </p>
+                <p><strong>Wednesday:</strong> Prayer and Fasting 5:30 PM - 7:00 PM</p>
+                <p><strong>Friday:</strong> Holy Communion 6:00 PM - 7:30 PM</p>
+            </div>
+            <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <p><a href="events.html">Upcoming Events</a></p>
+                <p><a href="ministries.html">Our Ministries</a></p>
+                <p><a href="give.html">Online Giving</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Redeemed Gospel Church Oasis Fellowship. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const navToggle = document.getElementById('mobileNavToggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('open');
+        navToggle.classList.toggle('open');
+    });
+    navToggle.addEventListener('keydown', function(e) {
+        if (e.key === "Enter" || e.key === " ") {
+            navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open');
+        }
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            navToggle.classList.remove('open');
+        });
+    });
+});
+</script>
+</body>
+
+</html>

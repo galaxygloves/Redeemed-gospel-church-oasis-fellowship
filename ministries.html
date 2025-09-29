@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministries | Oasis Fellowship</title>
+    <link rel="icon" href="images/redeemed church logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .main-nav {
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 2vw;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            height: 60px;
+            width: auto;
+            border-radius: 10px;
+            background: #fff;
+            padding: 2px;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #1e90ff;
+            color: #fff;
+        }
+
+        .nav-socials {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .nav-socials img {
+            height: 24px;
+            width: 24px;
+            transition: transform 0.3s;
+            display: block;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+        }
+
+        .nav-socials img:hover {
+            transform: scale(1.1);
+        }
+
+        .hero {
+            height: 40vh;
+            min-height: 200px;
+            background: linear-gradient(rgba(44, 62, 80, 0.55), rgba(44, 62, 80, 0.45)), url('images/Js.avif') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2.5rem 1rem;
+            background: rgba(44, 62, 80, 0.32);
+            border-radius: 22px;
+            box-shadow: 0 4px 32px rgba(44, 62, 80, 0.13);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .welcome-text {
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffe066;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #eaf4fb;
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+        }
+
+        .page-bg-content {
+            background: url('images/Js.avif') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            z-index: 0;
+            padding: 0;
+            min-height: 1px;
+        }
+
+        .page-bg-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(247, 247, 247, 0.55);
+            z-index: 1;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .section-block {
+            position: relative;
+            z-index: 2;
+            margin: 48px auto 0 auto;
+            max-width: 900px;
+            width: 96vw;
+            border-radius: 22px;
+            box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+            padding: 36px 28px 32px 28px;
+            box-sizing: border-box;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .section-block.ministries-block {
+            background: linear-gradient(120deg, #eaf4fb 70%, #fff 100%);
+            border-left: 8px solid #1e90ff;
+        }
+
+        .ministries-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .ministry-card {
+            background: #eaf4fb;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+            padding: 28px 22px;
+            width: 270px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: box-shadow 0.2s;
+        }
+
+        .ministry-card:hover {
+            box-shadow: 0 4px 18px rgba(30, 144, 255, 0.13);
+        }
+
+        .ministry-card h3 {
+            margin: 0 0 10px 0;
+            color: #1e90ff;
+            font-size: 1.25rem;
+        }
+
+        .ministry-card p {
+            margin: 0;
+            color: #222;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .ministry-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 14px;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 5% 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 24px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .footer-section {
+            min-width: 220px;
+            flex: 1 1 260px;
+            padding: 0 10px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 18px;
+            color: #ffe066;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #1e90ff;
+        }
+
+        .footer-section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .footer-section.quick-links {
+            align-items: flex-end;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-socials {
+            margin-top: 18px;
+            display: flex;
+            gap: 14px;
+        }
+
+        .footer-socials a img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+            transition: transform 0.2s;
+            object-fit: cover;
+            display: block;
+        }
+
+        .footer-socials a img:hover {
+            transform: scale(1.13);
+            background: #1e90ff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.13);
+            padding-top: 18px;
+            font-size: 0.97rem;
+            color: #eaf4fb;
+            background: transparent;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 900px) {
+            .section-block {
+                padding: 18px 4vw;
+                max-width: 99vw;
+            }
+
+            .ministries-list {
+                flex-direction: column;
+                gap: 18px;
+                align-items: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 28px;
+                text-align: left;
+            }
+
+            .footer-section.quick-links {
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .main-nav {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.5rem 2vw;
+                gap: 0.3rem;
+                background: #fff;
+                box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                overflow-x: visible;
+            }
+
+            .nav-logo {
+                height: 34px !important;
+                margin: 0 8px 0 0;
+                display: block;
+                flex: 0 0 auto;
+                border-radius: 8px;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .nav-socials {
+                display: flex !important;
+                align-items: center;
+                gap: 10px;
+                margin-left: 8px;
+                position: relative;
+                z-index: 2001;
+            }
+
+            .mobile-nav-toggle {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 44px;
+                height: 44px;
+                cursor: pointer;
+                z-index: 2002;
+                margin-left: 8px;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+                border: 1px solid #eaf4fb;
+                transition: background 0.2s, box-shadow 0.2s;
+            }
+
+            .mobile-nav-toggle span {
+                display: block;
+                width: 28px;
+                height: 4px;
+                margin: 3px 0;
+                background: #1e90ff;
+                border-radius: 2px;
+                transition: 0.3s;
+            }
+
+            .mobile-nav-toggle.open span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-nav-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-nav-toggle.open span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-links {
+                display: none !important;
+                flex-direction: column;
+                align-items: flex-start;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                min-width: 0;
+                background: #fff;
+                box-shadow: 0 4px 24px rgba(44, 62, 80, 0.13);
+                border-radius: 0 0 12px 12px;
+                z-index: 2000;
+                padding: 8px 0;
+                margin: 0;
+                animation: slideDownNav 0.25s;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .nav-links.open {
+                display: flex !important;
+            }
+
+            .nav-link {
+                width: 92vw;
+                margin: 4px auto;
+                padding: 8px 0;
+                border-radius: 8px;
+                background: #eaf4fb;
+                color: #1e90ff;
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+                border: none;
+                transition: background 0.2s, color 0.2s;
+                box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+                text-decoration: none;
+                display: block;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                background: #1e90ff;
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+
+        @media (min-width: 701px) {
+            .mobile-nav-toggle {
+                display: none !important;
+            }
+
+            .nav-links {
+                display: flex !important;
+                position: static;
+                flex-direction: row;
+                width: auto;
+                background: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+                margin: 0;
+                max-height: none;
+                overflow: visible;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .nav-link {
+                width: auto;
+                margin: 0;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                background: none;
+                color: #2c3e50;
+                font-size: 1rem;
+                font-weight: 700;
+                text-align: center;
+                border: none;
+                box-shadow: none;
+                text-decoration: none;
+                display: block;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                background: #1e90ff;
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+
+        @keyframes slideDownNav {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            height: 40vh;
+            min-height: 200px;
+            background: linear-gradient(rgba(44, 62, 80, 0.55), rgba(44, 62, 80, 0.45)), url('images/pexels-wolfgang-1002140-2747448.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2.5rem 1rem;
+            background: rgba(44, 62, 80, 0.32);
+            border-radius: 22px;
+            box-shadow: 0 4px 32px rgba(44, 62, 80, 0.13);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .welcome-text {
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffe066;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #eaf4fb;
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+        }
+
+        .page-bg-content {
+            background: url('images/Js.avif') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            z-index: 0;
+            padding: 0;
+            min-height: 1px;
+        }
+
+        .page-bg-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(247, 247, 247, 0.55);
+            z-index: 1;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .section-block {
+            position: relative;
+            z-index: 2;
+            margin: 48px auto 0 auto;
+            max-width: 900px;
+            width: 96vw;
+            border-radius: 22px;
+            box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+            padding: 36px 28px 32px 28px;
+            box-sizing: border-box;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .section-block.ministries-block {
+            background: linear-gradient(120deg, #eaf4fb 70%, #fff 100%);
+            border-left: 8px solid #1e90ff;
+        }
+
+        .ministries-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .ministry-card {
+            background: #eaf4fb;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+            padding: 28px 22px;
+            width: 270px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: box-shadow 0.2s;
+        }
+
+        .ministry-card:hover {
+            box-shadow: 0 4px 18px rgba(30, 144, 255, 0.13);
+        }
+
+        .ministry-card h3 {
+            margin: 0 0 10px 0;
+            color: #1e90ff;
+            font-size: 1.25rem;
+        }
+
+        .ministry-card p {
+            margin: 0;
+            color: #222;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .ministry-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 14px;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 5% 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 24px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .footer-section {
+            min-width: 220px;
+            flex: 1 1 260px;
+            padding: 0 10px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 18px;
+            color: #ffe066;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #1e90ff;
+        }
+
+        .footer-section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .footer-section.quick-links {
+            align-items: flex-end;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-socials {
+            margin-top: 18px;
+            display: flex;
+            gap: 14px;
+        }
+
+        .footer-socials a img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+            transition: transform 0.2s;
+            object-fit: cover;
+            display: block;
+        }
+
+        .footer-socials a img:hover {
+            transform: scale(1.13);
+            background: #1e90ff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.13);
+            padding-top: 18px;
+            font-size: 0.97rem;
+            color: #eaf4fb;
+            background: transparent;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 900px) {
+            .section-block {
+                padding: 18px 4vw;
+                max-width: 99vw;
+            }
+
+            .ministries-list {
+                flex-direction: column;
+                gap: 18px;
+                align-items: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 28px;
+                text-align: left;
+            }
+
+            .footer-section.quick-links {
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .main-nav {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.5rem 2vw;
+                gap: 0.3rem;
+                background: #fff;
+                box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                overflow-x: visible;
+            }
+
+            .nav-logo {
+                height: 34px !important;
+                margin: 0 8px 0 0;
+                display: block;
+                flex: 0 0 auto;
+                border-radius: 8px;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .nav-socials {
+                display: flex !important;
+                align-items: center;
+                gap: 10px;
+                margin-left: 8px;
+                position: relative;
+                z-index: 2001;
+            }
+
+            .mobile-nav-toggle {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 44px;
+                height: 44px;
+                cursor: pointer;
+                z-index: 2002;
+                margin-left: 8px;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+                border: 1px solid #eaf4fb;
+                transition: background 0.2s, box-shadow 0.2s;
+            }
+
+            .mobile-nav-toggle span {
+                display: block;
+                width: 28px;
+                height: 4px;
+                margin: 3px 0;
+                background: #1e90ff;
+                border-radius: 2px;
+                transition: 0.3s;
+            }
+
+            .mobile-nav-toggle.open span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-nav-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-nav-toggle.open span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-links {
+                display: none !important;
+                flex-direction: column;
+                align-items: flex-start;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                min-width: 0;
+                background: #fff;
+                box-shadow: 0 4px 24px rgba(44, 62, 80, 0.13);
+                border-radius: 0 0 12px 12px;
+                z-index: 2000;
+                padding: 8px 0;
+                margin: 0;
+                animation: slideDownNav 0.25s;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .nav-links.open {
+                display: flex !important;
+            }
+
+            .nav-link {
+                width: 92vw;
+                margin: 4px auto;
+                padding: 8px 0;
+                border-radius: 8px;
+                background: #eaf4fb;
+                color: #1e90ff;
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+                border: none;
+                transition: background 0.2s, color 0.2s;
+                box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+                text-decoration: none;
+                display: block;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                background: #1e90ff;
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+
+        @media (min-width: 701px) {
+            .mobile-nav-toggle {
+                display: none !important;
+            }
+
+            .nav-links {
+                display: flex !important;
+                position: static;
+                flex-direction: row;
+                width: auto;
+                background: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+                margin: 0;
+                max-height: none;
+                overflow: visible;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .nav-link {
+                width: auto;
+                margin: 0;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                background: none;
+                color: #2c3e50;
+                font-size: 1rem;
+                font-weight: 700;
+                text-align: center;
+                border: none;
+                box-shadow: none;
+                text-decoration: none;
+                display: block;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+                background: #1e90ff;
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+
+        @keyframes slideDownNav {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ministry Modal styles */
+        #ministryModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(44, 62, 80, 0.25);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #ministryModalContent {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(30, 144, 255, 0.18);
+            max-width: 400px;
+            width: 90vw;
+            padding: 28px 22px 18px 22px;
+            position: relative;
+            margin: auto;
+        }
+
+        #closeMinistryModal {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #1e90ff;
+            cursor: pointer;
+        }
+
+        #modalMinistryImg {
+            width: 100%;
+            max-height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        #modalMinistryTitle {
+            margin-top: 0;
+            color: #1e90ff;
+            font-size: 1.3rem;
+        }
+
+        #modalMinistryDesc {
+            color: #222;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Redeemed Gospel Church-Oasis Fellowship</h2>
+    </header>
+    <nav class="main-nav">
+        <img src="images/redeemed church logo.png" alt="Redeemed Gospel Church Logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about us.html" class="nav-link">About Us</a>
+            <a href="contacts.html" class="nav-link">Contacts</a>
+            <a href="sermons.html" class="nav-link">Sermons</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="ministries.html" class="nav-link active">Ministries</a>
+            <a href="give.html" class="nav-link">Give</a>
+        </div>
+        <div class="nav-socials">
+            <a href="https://www.facebook.com/harrison.maingi.5/?_rdr" target="_blank" rel="noopener"><img
+                    src="images/facebook.jpg" alt="Facebook"></a>
+            <a href="https://x.com/OasisFello60328" target="_blank" rel="noopener"><img src="images/twitter.avif"
+                    alt="Twitter"></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener"><img src="images/instagram.jpg" alt="Instagram"></a>
+            <div class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <section class="hero" style="background: linear-gradient(rgba(44, 62, 80, 0.55), rgba(44, 62, 80, 0.45)), url('images/Js.avif') no-repeat center center; background-size: cover;">
+        <div class="hero-content">
+            <h1 class="welcome-text">Our Ministries</h1>
+            <h1 class="hero-title">Serving Together in Christ</h1>
+            <p class="hero-subtitle">Discover, Connect, and Grow</p>
+        </div>
+    </section>
+    <div class="page-bg-content" style="position:relative;">
+        <div class="section-block ministries-block">
+            <h2 class="section-title">Our Ministries</h2>
+            <div class="ministries-list">
+                <div class="ministry-card" data-index="0" tabindex="0" style="cursor:pointer;">
+                    <img src="images/men.jpg" alt="Men's Ministry">
+                    <h3 class="ministry-link" style="color:#1e90ff; text-decoration:underline;">Men's Ministry</h3>
+                    <p>
+                        Empowering men to grow in faith, leadership, and service. The Men's Ministry provides
+                        fellowship, mentorship, and outreach opportunities for men of all ages.
+                    </p>
+                </div>
+                <div class="ministry-card" data-index="1" tabindex="0" style="cursor:pointer;">
+                    <img src="images/SUNDAY SCHOOL.JPG" alt="Children's Ministry">
+                    <h3 class="ministry-link" style="color:#1e90ff; text-decoration:underline;">Children's Ministry</h3>
+                    <p>
+                        Nurturing the next generation in the love and knowledge of Christ. Our Children's Ministry
+                        offers engaging Bible lessons, fun activities, and a safe environment for kids.
+                    </p>
+                </div>
+                <div class="ministry-card" data-index="2" tabindex="0" style="cursor:pointer;">
+                    <img src="images/youth.jpg" alt="Youth Ministry">
+                    <h3 class="ministry-link" style="color:#1e90ff; text-decoration:underline;">Youth Ministry</h3>
+                    <p>
+                        Inspiring and equipping young people to live boldly for Christ. The Youth Ministry focuses on
+                        discipleship, worship, and community impact for teens and young adults.
+                    </p>
+                </div>
+                <div class="ministry-card" data-index="3" tabindex="0" style="cursor:pointer;">
+                    <img src="images/WhatsApp 3.jpg" alt="Mercy Ministry">
+                    <h3 class="ministry-link" style="color:#1e90ff; text-decoration:underline;">Mercy Ministry</h3>
+                    <p>
+                        Demonstrating Christ's love through acts of compassion and service. The Mercy Ministry
+                        organizes outreach programs, support groups, and community assistance initiatives.
+                    </p>
+                </div>
+                <!-- Add more ministries as needed -->
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:oasisfellowship738@gmail.com">oasisfellowship738@gmail.com</a></p>
+                <p>Phone: <a href="tel:+254720767457">+254 720 767 457</a></p>
+                <p>Address: Nakuru, Kenya, P43G+RG Nakuru</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/harrison.maingi.5" target="_blank" rel="noopener"><img src="images/facebook.jpg" alt="Facebook"></a>
+                    <a href="https://x.com/OasisFello60328" target="_blank" rel="noopener"><img src="images/twitter.avif" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/maingiharrison/" target="_blank" rel="noopener"><img src="images/instagram.jpg" alt="Instagram"></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Service Times</h3>
+                <p><strong>Sunday Services:</strong><br>Intercessory Prayers 8:00AM - 10:00AM<br>Main service 10:00 AM - 1:00 PM</p>
+                <p><strong>Wednesday:</strong> Prayer and Fasting 5:30 PM - 7:00 PM</p>
+                <p><strong>Friday:</strong> Holy Communion 6:00 PM - 7:30 PM</p>
+            </div>
+            <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <p><a href="events.html">Upcoming Events</a></p>
+                <p><a href="ministries.html">Our Ministries</a></p>
+                <p><a href="give.html">Online Giving</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Redeemed Gospel Church Oasis Fellowship. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Ministry Modal -->
+    <div id="ministryModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(44,62,80,0.25); z-index:2000; align-items:center; justify-content:center;">
+        <div id="ministryModalContent" style="background:#fff; border-radius:18px; box-shadow:0 4px 32px rgba(30,144,255,0.18); max-width:400px; width:90vw; padding:28px 22px 18px 22px; position:relative; margin:auto;">
+            <button id="closeMinistryModal" style="position:absolute; top:10px; right:14px; background:none; border:none; font-size:1.5rem; color:#1e90ff; cursor:pointer;">&times;</button>
+            <img id="modalMinistryImg" src="" alt="" style="width:100%;max-height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px;">
+            <h2 id="modalMinistryTitle" style="margin-top:0; color:#1e90ff; font-size:1.3rem;"></h2>
+            <div id="modalMinistryDesc" style="color:#222; font-size:1.05rem;"></div>
+        </div>
+    </div>
+    <script>
+        // Ministry details data
+        const ministryDetails = [
+            {
+                title: "Men's Ministry",
+                img: "images/men.jpg",
+                desc: "Empowering men to grow in faith, leadership, and service. The Men's Ministry provides fellowship, mentorship, and outreach opportunities for men of all ages."
+            },
+            {
+                title: "Children's Ministry",
+                img: "images/SUNDAY SCHOOL.JPG",
+                desc: "Nurturing the next generation in the love and knowledge of Christ. Our Children's Ministry offers engaging Bible lessons, fun activities, and a safe environment for kids."
+            },
+            {
+                title: "Youth Ministry",
+                img: "images/youth.jpg",
+                desc: "Inspiring and equipping young people to live boldly for Christ. The Youth Ministry focuses on discipleship, worship, and community impact for teens and young adults."
+            },
+            {
+                title: "Mercy Ministry",
+                img: "images/WhatsApp 3.jpg",
+                desc: "Demonstrating Christ's love through acts of compassion and service. The Mercy Ministry organizes outreach programs, support groups, and community assistance initiatives."
+            }
+        ];
+
+        // Modal logic
+        function openMinistryModal(index) {
+            const ministry = ministryDetails[index];
+            document.getElementById('modalMinistryTitle').textContent = ministry.title;
+            document.getElementById('modalMinistryImg').src = ministry.img;
+            document.getElementById('modalMinistryImg').alt = ministry.title;
+            document.getElementById('modalMinistryDesc').textContent = ministry.desc;
+            document.getElementById('ministryModal').style.display = 'flex';
+        }
+        function closeMinistryModal() {
+            document.getElementById('ministryModal').style.display = 'none';
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Make the whole ministry card clickable for popup
+            document.querySelectorAll('.ministry-card').forEach(function(card) {
+                card.addEventListener('click', function() {
+                    openMinistryModal(card.getAttribute('data-index'));
+                });
+                card.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        openMinistryModal(card.getAttribute('data-index'));
+                    }
+                });
+            });
+            document.getElementById('closeMinistryModal').onclick = closeMinistryModal;
+            document.getElementById('ministryModal').onclick = function(e) {
+                if (e.target === this) closeMinistryModal();
+            };
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const navToggle = document.getElementById('mobileNavToggle');
+            const navLinks = document.querySelector('.nav-links');
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('open');
+                navToggle.classList.toggle('open');
+            });
+            navToggle.addEventListener('keydown', function(e) {
+                if (e.key === "Enter" || e.key === " ") {
+                    navLinks.classList.toggle('open');
+                    navToggle.classList.toggle('open');
+                }
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                    navToggle.classList.remove('open');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
