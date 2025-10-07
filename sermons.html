@@ -622,31 +622,8 @@
                 </div>
                 <div class="sermon-list-half" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10); padding: 28px 18px;">
                     <h3 style="color:#1e90ff; font-size:1.35rem; margin-bottom:18px; text-align:center; letter-spacing:1px;">Recent Sermons</h3>
-                    <ul class="sermon-list" style="padding:0; margin:0;">
-                        <li>
-                            <a href="#" class="sermon-link" data-index="0">
-                                <strong style="color:#2c3e50;">How To Make Faith Work</strong><br>
-                                <span style="color:#888;">August 31, 2025</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="sermon-link" data-index="1">
-                                <strong style="color:#2c3e50;">The Power of Prayer</strong><br>
-                                <span style="color:#888;">August 17, 2025</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="sermon-link" data-index="2">
-                                <strong style="color:#2c3e50;">Walking in Love</strong><br>
-                                <span style="color:#888;">August 10, 2025</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="sermon-link" data-index="3">
-                                <strong style="color:#2c3e50;">Overcoming Fear</strong><br>
-                                <span style="color:#888;">August 3, 2025</span>
-                            </a>
-                        </li>
+                    <ul class="sermon-list" id="sermonList" style="padding:0; margin:0;">
+                        <!-- Sermons will be injected here by JS -->
                     </ul>
                 </div>
             </div>
@@ -723,14 +700,14 @@
         // Sermon details data (now with images)
         const sermonDetails = [
             {
-                 title: "How To Make Faith Work",
-                date: "August 31, 2025",
-                desc: "Faith operates through speaking and declaring. The Scriptures affirm this truth: “Abraham believed God, and it was accounted to him for righteousness” (Galatians 3:6). Paul also declares, “We believed, and therefore we spoke” (2 Corinthians 4:13). In Romans 10:8–9, we are taught that the word of faith is near us, in our mouths and in our hearts, and that if we believe and confess, we are saved.\n\nFaith is not silent—it must be expressed. Whatever you truly believe in your heart, you will declare with your mouth. Salvation itself means deliverance from danger, sin, and destruction. The One in whom you believe is the One you must confess, and through that confession, deliverance becomes yours.",
+                title: "Pastor Nancy - How to Serve God",
+                date: "October 05, 2025",
+                desc: "Pastor Nancy Romans 12.1\n1 Peter 2.5\nHindrances to great service\nLack of preparation 2 Timothy 2.16 Work hard towards the word of God\nDetermine the kind of vessel you want to be\nLack of knowledge and skills psalms 33.3\nLack of fellowship with God whom you serve\nHoliness and cleanliness\nHow to serve God\nWe serve God willingly Psalms 110.3 ... Isaiah 1.19.... Philippians 2.13\nSubmit to God's control and do His work\nWe serve God acceptably\nServe God faithfully Mathew 25.14, Proverbs 28.29\nServe God whole heatedly Colossians 3.23\nEphesians 6.6\nWe serve God joyfully and with gladness of heart Psalms 100:2, Deuteronomy 28:47-48\nServe God steadfastly 1 Corinthians 15.58\nBenefits of serving God\nGod spares you Malachi 3.14\nGod puts a distinction between those who serves Him\nExodus 23 .25 we receive the blessings and healing\nHe takes away any form if barrenness."
             },
             {
-                title: "The Power of Prayer",
-                date: "August 17, 2025",
-                desc: "Learn about the transformative power of prayer and how it connects us to God's will and miracles.",
+                title: "How To Make Faith Work",
+                date: "August 31, 2025",
+                desc: "Faith operates through speaking and declaring. The Scriptures affirm this truth: “Abraham believed God, and it was accounted to him for righteousness” (Galatians 3:6). Paul also declares, “We believed, and therefore we spoke” (2 Corinthians 4:13). In Romans 10:8–9, we are taught that the word of faith is near us, in our mouths and in our hearts, and that if we believe and confess, we are saved.\n\nFaith is not silent—it must be expressed. Whatever you truly believe in your heart, you will declare with your mouth. Salvation itself means deliverance from danger, sin, and destruction. The One in whom you believe is the One you must confess, and through that confession, deliverance becomes yours",
                 img: "images/sermon2.jpg"
             },
             {
@@ -764,6 +741,30 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
+            // Dynamically generate the sermon list from sermonDetails
+            const sermonList = document.getElementById('sermonList');
+            if (sermonList) {
+                sermonList.innerHTML = '';
+                sermonDetails.forEach((sermon, idx) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <a href="#" class="sermon-link" data-index="${idx}">
+                            <strong style="color:#2c3e50;">${sermon.title}</strong><br>
+                            <span style="color:#888;">${sermon.date}</span>
+                        </a>
+                    `;
+                    sermonList.appendChild(li);
+                });
+
+                // Attach modal event listeners
+                sermonList.querySelectorAll('.sermon-link').forEach((link, idx) => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openSermonModalSermon(idx);
+                    });
+                });
+            }
+
             // Sermon modal event listeners for sermon list
             document.querySelectorAll('.sermon-list .sermon-link').forEach((link, idx) => {
                 link.addEventListener('click', function(e) {
