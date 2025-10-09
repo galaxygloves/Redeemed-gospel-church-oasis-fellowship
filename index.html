@@ -1139,7 +1139,7 @@ section.section img[alt^="Pastor"] {
             <div id="videoContainer" class="stylish-video-container">
                 <div class="video-overlay-gradient"></div>
                 <iframe id="sermonIframe"
-                    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/harrison.maingi.5/videos/1402618244232967/"
+                    src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/facebook/videos/10153231379946729/"
                     width="100%" height="320"
                     style="border:none;overflow:hidden;border-radius:18px;z-index:2;position:relative;"
                     allowfullscreen="true"
@@ -1155,6 +1155,12 @@ section.section img[alt^="Pastor"] {
             <div class="video-controls stylish-video-controls">
                 <button onclick="prevVideo()" class="video-btn stylish-video-btn">&#8592; Previous</button>
                 <button onclick="nextVideo()" class="video-btn stylish-video-btn">Next &#8594;</button>
+            </div>
+            <div class="video-list" style="margin-top:22px; text-align:center;">
+                <h4 style="color:#1e90ff; margin-bottom:10px;">Sermon Videos</h4>
+                <ul id="videoList" style="list-style:none; padding:0; margin:0; display:inline-block; text-align:left;">
+                    <!-- Video links will be injected by JS -->
+                </ul>
             </div>
             <div style="margin-top:18px; text-align:center;">
                 <span style="color:#1e90ff; font-weight:700; font-size:1.08rem;">New sermons every week!</span>
@@ -1368,8 +1374,8 @@ section.section img[alt^="Pastor"] {
    <script>
         // Sermon video navigation (optional)
         const videos = [
+            "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/2292843371187139/",
             "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/harrison.maingi.5/videos/1402618244232967/",
-            "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/harrison.maingi.5/videos/24690351137243724/"
         ];
         let currentVideoIndex = 0;
         const iframeElement = document.getElementById('sermonIframe');
@@ -1581,7 +1587,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 </script>
 <style>
-@media (max-width: 700px) {
+@media (max-width:  700px) {
     .footer-content,
     .footer-section {
         max-width: 96vw !important;
